@@ -1,0 +1,113 @@
+create table DrugMasterDetails(
+  id int PRIMARY KEY,
+  name varchar(30),
+  dosageStrength varchar(30),
+  ndc varchar(30),
+  quantity int,
+  zipcode varchar(30),
+  drugType varchar(30),
+  isDefault boolean,
+  recomendedPrice float(10),
+  average int
+);
+
+
+create table DrugDetails(
+  id int primary key,
+  drugId int,
+  quantity float(10),
+  zipcode varchar(30),
+  drugType varchar(30),
+  isDefault boolean
+);
+
+
+
+
+
+create table ProgramMaster(
+  id int
+  name varchar(50)
+  isActive boolean
+);
+
+
+
+create table Price(
+  id int,
+  price float(10),
+  programId varchar(30),
+  drugProgramId int,
+  createdAt timestamp
+);
+
+
+create table Schedule(
+  id int,
+  drugMasterId int,
+  reportTime time,
+  isActive boolean, 
+);
+
+
+create table Dashboard(
+  id int,
+  drugMasterId int, 
+  userId int
+);
+ 
+
+create table Report(
+  id int,
+  userId int,
+  timestamp timestamp
+);
+
+
+
+create table Batch(
+  id int,
+  drugMasterId int,
+  reportId int
+);
+
+
+
+create table BatchSchedule(
+  id int,
+  batchId int,
+  createdAt timestamp
+);
+
+
+
+create table Users(
+  id int,
+  name varchar(50),
+  password varchar(50),
+  role varchar(50)
+);
+
+
+ 
+Ref: "Users"."id" < "Dashboard"."userId"
+ 
+ 
+Ref: "Dashboard"."drugMasterId" < "DrugMaster"."id"
+ 
+Ref: "DrugDetails"."id" < "Price"."drugProgramId"
+ 
+Ref: "Schedule"."drugMasterId" < "DrugMaster"."id"
+ 
+Ref: "DrugMaster"."id" < "DrugDetails"."drugId"
+ 
+Ref: "ProgramMaster"."id" < "Price"."programId"
+ 
+ 
+Ref: "BatchSchedule"."batchId" < "Batch"."id"
+ 
+Ref: "Batch"."drugMasterId" < "DrugMaster"."id"
+ 
+Ref: "Batch"."reportId" < "Report"."id"
+ 
+Ref: "Report"."timestamp" < "Price"."createdAt"
