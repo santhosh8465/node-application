@@ -1,0 +1,62 @@
+INSERT INTO price (id, price, programid, drugprogramid, createdat)
+    VALUES (10, 10.10, 100, 200, '1961-06-16');
+
+
+
+    INSERT INTO price (id, price, programid, drugprogramid, createdat)
+    VALUES (11, 11.11, 101, 201, '1962-06-16');
+
+
+
+
+
+
+create table DrugMasterDetails(
+  id int PRIMARY KEY,
+  name varchar(30),
+  dosageStrength varchar(30),
+  ndc varchar(30),
+  quantity int,
+  zipcode varchar(30),
+  drugType varchar(30),
+  isDefault boolean,
+  recomendedPrice float(10),
+  average int
+);
+
+
+
+INSERT INTO DrugMasterDetails (id, name, dosageStrength, ndc, quantity,zipcode,drugType,isDefault,recomendedPrice,average)
+    VALUES (1001, 'Acetaminophen-Codeine #3', '300-30', '65162003311', 20,'08873','GENERIC',true,10.11,10);
+
+INSERT INTO DrugMasterDetails (id, name, dosageStrength, ndc, quantity,zipcode,drugType,isDefault,recomendedPrice,average)
+    VALUES (1002, 'Ibuprofen', '800', '69238110305', 30,'08824','GENERIC',true,10.11,10);
+
+INSERT INTO DrugMasterDetails (id, name, dosageStrength, ndc, quantity,zipcode,drugType,isDefault,recomendedPrice,average)
+    VALUES (1003, 'Advil Cold/Sinus', '30-200', '00573018021', 40,'08824','BRAND_WITH_GENERIC',true,10.11,10);
+
+INSERT INTO DrugMasterDetails (id, name, dosageStrength, ndc, quantity,zipcode,drugType,isDefault,recomendedPrice,average)
+    VALUES (1004, 'Nitroglycerin', '0.4', '68462063945', 25,'08824','GENERIC',true,10.11,10);
+
+INSERT INTO DrugMasterDetails (id, name, dosageStrength, ndc, quantity,zipcode,drugType,isDefault,recomendedPrice,average)
+    VALUES (1005, 'Lamotrigine', '200', '29300011416', 30,'08824','GENERIC',true,10.11,10);
+
+
+
+create table ProgramMaster(
+  id int
+  name varchar(50)
+  isActive boolean
+);
+INSERT INTO ProgramMaster (id, name, isActive)
+    VALUES (102, 'uspharmacycard', true);   
+
+
+
+
+
+    https://api.uspharmacycard.com/drug/price/147/none/08823/00378395277/Atorvastatin%20Calcium/GENERIC/30/8
+
+
+
+    https://api.uspharmacycard.com/drug/price/147/none/{zipcode}/{ndc}/{drugname}/{drugtype}/{quantity}}/8
