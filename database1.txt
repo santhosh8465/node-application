@@ -1,15 +1,15 @@
 create table DrugMasterDetails(
-  id int PRIMARY KEY,
-  name varchar(30),
-  dosageStrength varchar(30),
-  ndc varchar(30),
-  quantity int,
-  zipcode varchar(30),
-  drugType varchar(30),
-  isDefault boolean,
-  recomendedPrice float(10),
-  average int
-);
+    id int PRIMARY KEY,
+    name varchar(30),
+    dosageStrength varchar(30),
+    ndc varchar(30),
+    quantity int,
+    zipcode varchar(30),
+    drugType varchar(30),
+    isDefault boolean,
+    recomendedPrice float(10),
+    average int
+  );
 
 
 create table DrugDetails(
@@ -33,14 +33,14 @@ create table ProgramMaster(
 
 
 
-create table Price(
+
+create table Price1(
   id int,
   price float(10),
   programId varchar(30),
   drugProgramId int,
   createdAt timestamp
 );
-
 
 create table Schedule(
   id int,

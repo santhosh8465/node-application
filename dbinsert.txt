@@ -51,7 +51,7 @@ create table ProgramMaster(
 INSERT INTO ProgramMaster (id, name, isActive)
     VALUES (102, 'uspharmacycard', true);   
 
-
+I'm trying to invoke lambda to another one and it is giving me permission error , can you please provide permissions for therole to invoke kambdas
 
 
 
